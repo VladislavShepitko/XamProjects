@@ -72,6 +72,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\Second.axml" />
     <AndroidResource Include="Resources\layout\Third.axml" />
+    <AndroidResource Include="Resources\layout\Forth.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

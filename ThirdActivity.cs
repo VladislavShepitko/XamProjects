@@ -22,51 +22,33 @@ namespace ViewProject2
 		private int speed = 1;
 		private bool isRunning = true;
 		TextView v;
+		Action onFinish;
+		ProgressBar pb;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.Third);
+			
 			Button startBtn = FindViewById<Button>(Resource.Id.startBtn);
+			startBtn.Click += StartBtn_Click;
 			Button stopBtn = FindViewById<Button>(Resource.Id.stopBtn);
-			ProgressBar pb = FindViewById<ProgressBar>(Resource.Id.pb1);
+			stopBtn.Click += StopBtn_Click;
+			
+			pb = FindViewById<ProgressBar>(Resource.Id.pb1);
 			SeekBar sb = FindViewById<SeekBar>(Resource.Id.seekBar);
 			v = FindViewById<TextView>(Resource.Id.infoTxt);
 			sb.SetOnSeekBarChangeListener(this);
 			pb.Max = 100;
-			startBtn.Click += (sender, e) =>
-			{
-				Thread tn = new Thread(() =>
-				{
-					while (isRunning)
-					{
-						try
-						{
-							Thread.Sleep(1000);
-							RunOnUiThread(() =>
-							{
-								pb.Progress += speed;
-								if (pb.Progress == 100)
-								{
-									isRunning = false;
-								}
-							});
 
-						}
-						catch (ThreadInterruptedException ex)
-						{
-							Console.WriteLine(ex.Message);
-						}
-					}
-				});
-				tn.Join();
-				tn.Start();
-					
-			};
-			
-			stopBtn.Click += (sender, e) => {
-				isRunning = false;
-				pb.Progress = 0;
-			};
+			onFinish += () => {
+				var view = LayoutInflater.Inflate(Resource.Layout.Forth, null);
+				Toast t = new Toast(this);
+				t.View = view;
+				t.SetText("Lol kek cheburec!");
+				t.Duration = ToastLength.Short;
+				t.SetGravity(GravityFlags.Center,0,0);
+				t.Show();
+			};			
 		}
 
 		public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser)
@@ -83,6 +65,38 @@ namespace ViewProject2
 		public void OnStopTrackingTouch(SeekBar seekBar)
 		{
 			speed = seekBar.Progress;
+		}
+		
+		void StartBtn_Click(object sender, EventArgs e)
+		{
+			Thread tn = new Thread(() => {
+				while (isRunning) {
+					try {
+						Thread.Sleep(1000);
+						RunOnUiThread(() => {
+							pb.Progress += speed;
+							if (pb.Progress >= 100) {
+								isRunning = false;
+								if (onFinish != null) {
+									onFinish.Invoke();
+								}
+							}
+						});
+					}
+					catch (ThreadInterruptedException ex) {
+						Console.WriteLine(ex.Message);
+					}
+				}
+			});
+			isRunning = true;
+			tn.Start();
+		}
+		void StopBtn_Click(object sender, EventArgs e) {
+			isRunning = false;
+			pb.Progress = 0;
+			if (onFinish != null) {
+				onFinish.Invoke();
+			}
 		}
 	}
 }
