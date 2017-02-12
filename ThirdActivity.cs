@@ -42,11 +42,12 @@ namespace ViewProject2
 
 			onFinish += () => {
 				var view = LayoutInflater.Inflate(Resource.Layout.Forth, null);
+				var info = view.FindViewById<TextView>(Resource.Id.toastText);
+				info.Text = "Lol kek cheburec!";
 				Toast t = new Toast(this);
 				t.View = view;
-				t.SetText("Lol kek cheburec!");
 				t.Duration = ToastLength.Short;
-				t.SetGravity(GravityFlags.Center,0,0);
+				//t.SetGravity(GravityFlags.Center,0,0);
 				t.Show();
 			};			
 		}
