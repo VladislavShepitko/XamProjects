@@ -12,6 +12,7 @@ namespace ViewProject2
 
 		private float textSize = 20;
 		private EditText field;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -19,12 +20,20 @@ namespace ViewProject2
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
 			
-			List<Button> buts = new List<Button>();
-			
-			foreach (var b in buts)
+			List<int> ids = new List<int>() {Resource.Id.BtBtn,Resource.Id.ItBtn,Resource.Id.NtBtn,Resource.Id.ZItBtn,Resource.Id.ZOtBtn };
+			field = FindViewById<EditText>(Resource.Id.editField);
+			for (int i = 0; i < ids.Count;i++)
 			{
-				b.Click += B_Click;
+				var button = FindViewById<Button>(ids[i]);
+				if (button != null) {
+					button.Click += B_Click;
+				}
 			}
+			var nextPagBtn = FindViewById<ImageButton>(Resource.Id.NpBtn);
+			nextPagBtn.Click += (sender, e) => {
+				StartActivity(typeof(SecondActivity));
+			};
+			
 		}
 		
 		void B_Click(object sender, System.EventArgs e)
@@ -32,29 +41,31 @@ namespace ViewProject2
 			var view = (View)sender;
 			if (view != null) {
 				switch (view.Id) {
-					case 0: {
+					case Resource.Id.NtBtn: {
 						if (field != null) {
 							field.SetTypeface(null, Android.Graphics.TypefaceStyle.Normal);
 						}
 					}break;
-					case 1: {
+					case Resource.Id.ItBtn: {
 						if (field != null) {
 							field.SetTypeface(null, Android.Graphics.TypefaceStyle.Italic);
 						}	
 					}break;
-					case 2: {
+					case Resource.Id.BtBtn: {
 						if (field != null) {
 							field.SetTypeface(null, Android.Graphics.TypefaceStyle.Bold);
 						}
 					}break;
-					case 3: {
+					case Resource.Id.ZItBtn: {
 						if (textSize <= 72)
 							textSize += 2;
+						if(field != null)
 							field.SetTextSize(Android.Util.ComplexUnitType.Dip,textSize);	
 					}break;
-					case 4: { 
-					if (textSize >= 72)
+					case Resource.Id.ZOtBtn: { 
+						if (textSize >= 72)
 							textSize -= 2;
+						if(field != null)
 							field.SetTextSize(Android.Util.ComplexUnitType.Dip,textSize);	
 					}break;
 				}

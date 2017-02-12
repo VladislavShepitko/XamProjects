@@ -37,9 +37,20 @@
             android:text="-"
             android:layout_weight="1"
             android:id="@+id/ZOtBtn" />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-&gt;"
+            android:layout_weight="1"
+            android:id="@+id/NpBtn"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="90" />
+        android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/editField" />
+    </ScrollView>
 </LinearLayout>
