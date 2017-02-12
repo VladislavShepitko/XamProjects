@@ -38,7 +38,8 @@ namespace ViewProject2
 				else {
 					playBtn.SetImageResource(Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha);
 				}
-				isPlaying = !isPlaying;			
+				isPlaying = !isPlaying;
+				StartActivity(typeof(ThirdActivity));	
 			};
 		}
 		void Arg_Click(object sender, EventArgs e)

@@ -1576,6 +1576,9 @@ namespace ViewProject2
 			// aapt resource value: 0x7f0c0062
 			public const int info = 2131492962;
 			
+			// aapt resource value: 0x7f0c0069
+			public const int infoTxt = 2131492969;
+			
 			// aapt resource value: 0x7f0c005c
 			public const int line1 = 2131492956;
 			
@@ -1608,6 +1611,9 @@ namespace ViewProject2
 			
 			// aapt resource value: 0x7f0c002d
 			public const int parentPanel = 2131492909;
+			
+			// aapt resource value: 0x7f0c006a
+			public const int pb1 = 2131492970;
 			
 			// aapt resource value: 0x7f0c0005
 			public const int progress_circular = 2131492869;
@@ -1669,6 +1675,9 @@ namespace ViewProject2
 			// aapt resource value: 0x7f0c004e
 			public const int search_voice_btn = 2131492942;
 			
+			// aapt resource value: 0x7f0c006d
+			public const int seekBar = 2131492973;
+			
 			// aapt resource value: 0x7f0c004f
 			public const int select_dialog_listview = 2131492943;
 			
@@ -1699,8 +1708,14 @@ namespace ViewProject2
 			// aapt resource value: 0x7f0c0017
 			public const int src_over = 2131492887;
 			
+			// aapt resource value: 0x7f0c006b
+			public const int startBtn = 2131492971;
+			
 			// aapt resource value: 0x7f0c0059
 			public const int status_bar_latest_event_content = 2131492953;
+			
+			// aapt resource value: 0x7f0c006c
+			public const int stopBtn = 2131492972;
 			
 			// aapt resource value: 0x7f0c004c
 			public const int submit_area = 2131492940;
@@ -1898,6 +1913,9 @@ namespace ViewProject2
 			
 			// aapt resource value: 0x7f040026
 			public const int support_simple_spinner_dropdown_item = 2130968614;
+			
+			// aapt resource value: 0x7f040027
+			public const int Third = 2130968615;
 			
 			static Layout()
 			{
