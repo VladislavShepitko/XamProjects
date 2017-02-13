@@ -55,6 +55,7 @@
     <Compile Include="SecondActivity.cs" />
     <Compile Include="ThirdActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Forth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -73,6 +74,8 @@
     <AndroidResource Include="Resources\layout\Second.axml" />
     <AndroidResource Include="Resources\layout\Third.axml" />
     <AndroidResource Include="Resources\layout\Forth.axml" />
+    <AndroidResource Include="Resources\layout\Fifth.axml" />
+    <AndroidResource Include="Resources\layout\Dialog.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

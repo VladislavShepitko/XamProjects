@@ -24,6 +24,7 @@ namespace ViewProject2
 		TextView v;
 		Action onFinish;
 		ProgressBar pb;
+		
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -49,6 +50,7 @@ namespace ViewProject2
 				t.Duration = ToastLength.Short;
 				//t.SetGravity(GravityFlags.Center,0,0);
 				t.Show();
+				StartActivity(typeof(Forth));
 			};			
 		}
 
