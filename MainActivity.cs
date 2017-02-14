@@ -29,11 +29,10 @@ namespace ViewProject2
 					button.Click += B_Click;
 				}
 			}
-			var nextPagBtn = FindViewById<ImageButton>(Resource.Id.NpBtn);
+			ImageButton nextPagBtn = FindViewById<ImageButton>(Resource.Id.NpBtn);
 			nextPagBtn.Click += (sender, e) => {
 				StartActivity(typeof(SecondActivity));
-			};
-			
+			};			
 		}
 		
 		void B_Click(object sender, System.EventArgs e)
